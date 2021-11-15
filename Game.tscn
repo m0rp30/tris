@@ -1,0 +1,111 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Game.gd" type="Script" id=1]
+[ext_resource path="res://images/cell.png" type="Texture" id=2]
+[ext_resource path="res://Pause.tscn" type="PackedScene" id=3]
+
+[node name="Game" type="Node2D"]
+script = ExtResource( 1 )
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+margin_right = 40.0
+margin_bottom = 40.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer"]
+margin_right = 200.0
+margin_bottom = 200.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HBoxContainer1" type="HBoxContainer" parent="CenterContainer/VBoxContainer"]
+margin_right = 200.0
+margin_bottom = 64.0
+
+[node name="cell1" type="TextureButton" parent="CenterContainer/VBoxContainer/HBoxContainer1"]
+margin_right = 64.0
+margin_bottom = 64.0
+texture_normal = ExtResource( 2 )
+
+[node name="cell2" type="TextureButton" parent="CenterContainer/VBoxContainer/HBoxContainer1"]
+margin_left = 68.0
+margin_right = 132.0
+margin_bottom = 64.0
+texture_normal = ExtResource( 2 )
+
+[node name="cell3" type="TextureButton" parent="CenterContainer/VBoxContainer/HBoxContainer1"]
+margin_left = 136.0
+margin_right = 200.0
+margin_bottom = 64.0
+texture_normal = ExtResource( 2 )
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="CenterContainer/VBoxContainer"]
+margin_top = 68.0
+margin_right = 200.0
+margin_bottom = 132.0
+
+[node name="cell4" type="TextureButton" parent="CenterContainer/VBoxContainer/HBoxContainer2"]
+margin_right = 64.0
+margin_bottom = 64.0
+texture_normal = ExtResource( 2 )
+
+[node name="cell5" type="TextureButton" parent="CenterContainer/VBoxContainer/HBoxContainer2"]
+margin_left = 68.0
+margin_right = 132.0
+margin_bottom = 64.0
+texture_normal = ExtResource( 2 )
+
+[node name="cell6" type="TextureButton" parent="CenterContainer/VBoxContainer/HBoxContainer2"]
+margin_left = 136.0
+margin_right = 200.0
+margin_bottom = 64.0
+texture_normal = ExtResource( 2 )
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="CenterContainer/VBoxContainer"]
+margin_top = 136.0
+margin_right = 200.0
+margin_bottom = 200.0
+
+[node name="cell7" type="TextureButton" parent="CenterContainer/VBoxContainer/HBoxContainer3"]
+margin_right = 64.0
+margin_bottom = 64.0
+texture_normal = ExtResource( 2 )
+
+[node name="cell8" type="TextureButton" parent="CenterContainer/VBoxContainer/HBoxContainer3"]
+margin_left = 68.0
+margin_right = 132.0
+margin_bottom = 64.0
+texture_normal = ExtResource( 2 )
+
+[node name="cell9" type="TextureButton" parent="CenterContainer/VBoxContainer/HBoxContainer3"]
+margin_left = 136.0
+margin_right = 200.0
+margin_bottom = 64.0
+texture_normal = ExtResource( 2 )
+
+[node name="Line2D" type="Line2D" parent="CenterContainer"]
+default_color = Color( 1, 0, 0, 1 )
+
+[node name="Pause" parent="CenterContainer" instance=ExtResource( 3 )]
+pause_mode = 2
+visible = false
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 40.0
+margin_top = 81.0
+margin_right = 159.0
+margin_bottom = 119.0
+
+[connection signal="pressed" from="CenterContainer/VBoxContainer/HBoxContainer1/cell1" to="." method="_on_cell1_pressed"]
+[connection signal="pressed" from="CenterContainer/VBoxContainer/HBoxContainer1/cell2" to="." method="_on_cell2_pressed"]
+[connection signal="pressed" from="CenterContainer/VBoxContainer/HBoxContainer1/cell3" to="." method="_on_cell3_pressed"]
+[connection signal="pressed" from="CenterContainer/VBoxContainer/HBoxContainer2/cell4" to="." method="_on_cell4_pressed"]
+[connection signal="pressed" from="CenterContainer/VBoxContainer/HBoxContainer2/cell5" to="." method="_on_cell5_pressed"]
+[connection signal="pressed" from="CenterContainer/VBoxContainer/HBoxContainer2/cell6" to="." method="_on_cell6_pressed"]
+[connection signal="pressed" from="CenterContainer/VBoxContainer/HBoxContainer3/cell7" to="." method="_on_cell7_pressed"]
+[connection signal="pressed" from="CenterContainer/VBoxContainer/HBoxContainer3/cell8" to="." method="_on_cell8_pressed"]
+[connection signal="pressed" from="CenterContainer/VBoxContainer/HBoxContainer3/cell9" to="." method="_on_cell9_pressed"]
+[connection signal="reset" from="CenterContainer/Pause" to="." method="_on_Pause_reset"]
